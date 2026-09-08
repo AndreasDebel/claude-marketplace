@@ -1,0 +1,13 @@
+{
+  "name": "andreasdebel-plugins",
+  "owner": {
+    "name": "Andreas Debel"
+  },
+  "plugins": [
+    {
+      "name": "base-toolkit",
+      "source": "./plugins/base-toolkit",
+      "description": "Personal everyday skills: /easy, /simple, /teacher."
+    }
+  ]
+}

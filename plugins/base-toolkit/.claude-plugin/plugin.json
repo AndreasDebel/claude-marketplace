@@ -1,0 +1,9 @@
+{
+  "name": "base-toolkit",
+  "version": "0.1.0",
+  "description": "Andreas Debel's personal everyday skills: /easy, /simple, /teacher.",
+  "author": {
+    "name": "Andreas Debel"
+  },
+  "license": "MIT"
+}
