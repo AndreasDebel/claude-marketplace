@@ -12,7 +12,7 @@ small, `/barebone-claude-md` makes that a standing rule, and this skill deals wi
 that already exists. It reads the whole repository, finds where readability was traded for
 robustness or generality, and writes refactor tickets.
 
-**Read `${CLAUDE_PLUGIN_ROOT}/principles/BAREBONE-PRINCIPLES.md` first.** Those six
+**Read `${CLAUDE_PLUGIN_ROOT}/principles/BAREBONE-PRINCIPLES.md` first.** Those seven
 principles are the audit criteria; this file only describes the procedure.
 
 Two boundaries that define the skill:
@@ -46,7 +46,7 @@ the assignment.
 
 ## Step 2 — Fan out the reading
 
-Repositories are wide and the six principles need whole-file context, so split by natural
+Repositories are wide and the seven principles need whole-file context, so split by natural
 unit — one subagent per project, module, or top-level source directory. Reading a slice in
 full is what lets a subagent see that an interface has one implementation, or that a DTO is
 mapped in exactly one place; a keyword search across the tree cannot see either.
@@ -66,7 +66,7 @@ Two things worth telling every subagent, because they're the common failure mode
 Have each subagent report findings in this shape:
 
 ```
-- principle: <1-6>
+- principle: <1-7>
   what: <the construct, one line>
   where: <path:line, plus every other site involved>
   size: <lines this touches / lines it would become — may go up, see below>

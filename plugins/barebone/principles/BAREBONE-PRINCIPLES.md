@@ -37,6 +37,18 @@ production instincts are the thing making this code unreadable, so set them down
    that satisfies 1–5 is done, however plain it looks; a file that violates one isn't
    spared by being tidy. Renaming, reordering and general tidying cost the reader a
    re-read and remove nothing.
+7. **Say where control comes from when the page can't.** A student reads top to bottom, so
+   anywhere the next line to run isn't the next line on the page — a route/delegate
+   registration whose handler lives elsewhere, an event binding in markup calling a method
+   defined further down, a callback passed to a library — add a one-line comment at the
+   definition naming what triggers it and when. Without it, the only way to learn a method
+   runs on every request, or on every click, is to already know the framework.
+
+   The most important case of this is a hand-off that leaves the file entirely — an HTTP
+   call, a call into another project/object, anything the debugger can't step into. Mark
+   that line with an ALL CAPS `// LOOK HERE!` comment naming what's on the other side (which
+   file, which service). A student skimming a file should be able to spot, at a glance,
+   every point where "what happens next" stops being answerable from what's on screen.
 
 **Line count is not the metric.** Cutting a layer removes lines; expanding a clever
 one-liner into steps a student can trace adds them. Both are wins here. What's being

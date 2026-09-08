@@ -14,7 +14,7 @@ only purpose is that a student can read it. Fixing it file by file doesn't stick
 the next response reverts to default habits. Writing it into `CLAUDE.md` does stick.
 
 This skill is the *standing rule* half of the barebone pair. `/barebone-plan` is the
-per-task half; they carry the same six principles and are meant to be tried
+per-task half; they carry the same seven principles and are meant to be tried
 independently, so you can see which enforcement actually changes the output.
 
 ## Before you write

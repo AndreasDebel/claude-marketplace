@@ -13,7 +13,7 @@ barebone pair; `/barebone-claude-md` is the standing-rule half. Both carry the s
 so start by reading them.
 
 **Read `${CLAUDE_PLUGIN_ROOT}/principles/BAREBONE-PRINCIPLES.md` before planning
-anything.** The six principles there are the whole ruleset — this file only says how to
+anything.** The seven principles there are the whole ruleset — this file only says how to
 turn them into a plan document.
 
 You are writing a plan, not code. Don't edit source files.
