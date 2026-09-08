@@ -7,7 +7,12 @@
     {
       "name": "base-toolkit",
       "source": "./plugins/base-toolkit",
-      "description": "Personal everyday skills: /easy, /simple, /teacher."
+      "description": "Personal everyday skills: /easy (/e), /simple (/s), /teacher, /socrates."
+    },
+    {
+      "name": "barebone",
+      "source": "./plugins/barebone",
+      "description": "Keep learning repos readable: /barebone-plan plans the smallest working version, /barebone-claude-md installs the same rules into a repo's CLAUDE.md."
     }
   ]
 }
