@@ -5,7 +5,7 @@ Personal Claude Code plugin marketplace.
 | Plugin         | Skills                                          |
 |----------------|-------------------------------------------------|
 | `base-toolkit` | `/easy` (`/e`), `/simple` (`/s`), `/teacher`, `/socrates` |
-| `barebone`     | `/barebone-plan`, `/barebone-claude-md`         |
+| `barebone`     | `/barebone-plan`, `/barebone-audit`, `/barebone-claude-md` |
 
 ## barebone
 
@@ -14,11 +14,18 @@ correctness-dense — it handles inputs nothing sends, layers abstractions nobod
 and defends against failures that never happen. Correct in production, unreadable in a
 repo whose only job is that a student can follow it.
 
-Both skills carry the same six principles, kept in
-`plugins/barebone/principles/BAREBONE-PRINCIPLES.md`, and enforce them two different ways
-so the two can be compared:
+Everything the three skills share lives in `plugins/barebone/principles/` and is referenced,
+never restated — `BAREBONE-PRINCIPLES.md` (the six rules, and the block installed into a
+repo's `CLAUDE.md`), `TICKET-TEMPLATE.md` (the shape both ticket-writing skills emit), and
+`LEARNING-REPO-CHECK.md` (the guard on the two skills that act on an existing repo).
 
-- **`/barebone-plan`** — per task. Authors an implementation plan for the smallest version
-  that actually runs, with a "Deliberately skipped" section, to `docs/tickets/<name>-plan.md`.
-- **`/barebone-claude-md`** — standing rule. Idempotently installs the principles as a
+They enforce the same rules at three different points, so the three can be compared:
+
+- **`/barebone-plan`** — before the code exists. Authors an implementation plan for the
+  smallest version that actually runs, with a "Deliberately skipped" section, to
+  `docs/tickets/<name>-plan.md`.
+- **`/barebone-audit`** — after it exists. Fans the reading out across subagents, then
+  writes one refactor ticket per independently-shippable change to
+  `docs/tickets/<name>-refactor.md`. Returning no tickets is a valid result.
+- **`/barebone-claude-md`** — always on. Idempotently installs the principles as a
   `## Barebone principles` section in the repo's `CLAUDE.md`.

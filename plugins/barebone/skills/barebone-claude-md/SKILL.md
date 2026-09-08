@@ -19,12 +19,10 @@ independently, so you can see which enforcement actually changes the output.
 
 ## Before you write
 
-**Check that this is a learning repository, and stop if it isn't.** These rules tell an
-agent to skip validation, error handling, and generality. In a real project that's
-damaging advice living permanently in the repo's memory file. Look at what's around you —
-a course name, `docs/tickets/`, exercise or assignment structure, a README that says
-"school"/"course"/"øvelse", a repo used only locally. If it reads like production
-software, or you genuinely can't tell, ask once before writing rather than guessing.
+**Check that this is a learning repository** — follow
+`${CLAUDE_PLUGIN_ROOT}/principles/LEARNING-REPO-CHECK.md`. Installing these rules writes
+"skip validation and error handling" into a repo's memory file permanently, so it's worth
+one look before doing it.
 
 ## Procedure
 

@@ -12,7 +12,7 @@
     {
       "name": "barebone",
       "source": "./plugins/barebone",
-      "description": "Keep learning repos readable: /barebone-plan plans the smallest working version, /barebone-claude-md installs the same rules into a repo's CLAUDE.md."
+      "description": "Keep learning repos readable: /barebone-plan plans the smallest working version, /barebone-audit finds existing complexity and writes refactor tickets, /barebone-claude-md installs the same rules into a repo's CLAUDE.md."
     }
   ]
 }

@@ -48,44 +48,13 @@ recoverable later.
 
 ## Step 3 — Write the plan
 
-Save to `docs/tickets/<short-name>-plan.md` (create the directory if needed). Use this
-shape — it matches the convention these repos already use, and each section earns its
-place:
+Use the shared shape in `${CLAUDE_PLUGIN_ROOT}/principles/TICKET-TEMPLATE.md`, following its
+*(new work)* branches — the same template `/barebone-audit` writes to, so both kinds of
+ticket sit in `docs/tickets/` and read alike. Read it now if you haven't.
 
-```markdown
-# <One-line title: what gets built>
-
-## Context
-
-Why this is being built and what already exists — the current state in two or three
-sentences, with concrete file references. Then:
-
-**The one scenario:** <the single concrete case, stated plainly>
-
-**Decisions already made with the user:**
-- <each settled choice, one line, with the alternative it beat>
-
-## Step 1 — `path/to/first/file.ext`
-
-What goes in it, precisely enough to implement without further design decisions, but as
-prose and signatures — not as finished code. One step per file. State the size you expect
-it to be when it's obviously small ("~10 lines"), because that number is the thing a
-reader can check the result against.
-
-## Step 2 — `path/to/next/file.ext`
-
-...
-
-## Deliberately skipped
-
-- **<what>** — safe here because <why, referencing the one scenario>. Add it back by
-  <the one-line change that would restore it>.
-
-## Verification
-
-Numbered, runnable commands with the expected output stated. The last one should be the
-observation the exercise is actually about — the thing the student is meant to see happen.
-```
+The section that does the most work here is `Deliberately skipped`. It's the direct output
+of Step 2, and it's what turns "we left that out" into something recoverable rather than
+something forgotten.
 
 ## Rules for the plan itself
 
