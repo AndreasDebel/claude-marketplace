@@ -20,9 +20,12 @@ Two boundaries that define the skill:
 - **You propose, you don't refactor.** No source edits. The output is tickets the user
   reads and chooses to run. An audit that also rewrites removes the review step, which is
   the only place a wrong finding gets caught cheaply.
-- **"Nothing to do" is a valid result.** Principle 6 exists because churn costs a reader
-  more than it saves, and an audit that always finds work is an audit that manufactures it.
-  A small, clean repo should come back with a short report and no tickets.
+- **"Nothing to do" is a valid result.** Principle 6 rules out change that removes nothing,
+  and an audit that always finds work is an audit that manufactures it. A repo that already
+  satisfies the principles should come back with a short report and no tickets. Note the
+  direction of that principle, though: it licenses *no* finding, not a *weak* one. A file
+  that reads tidily but hides a mapper hop or a one-implementation interface still fails
+  principles 3 and 4 — being pleasant to look at is not a defence.
 
 ## Step 1 — Establish scope, and what the system actually does
 
@@ -66,7 +69,9 @@ Have each subagent report findings in this shape:
 - principle: <1-6>
   what: <the construct, one line>
   where: <path:line, plus every other site involved>
-  size: <lines this touches / lines it would become>
+  size: <lines this touches / lines it would become — may go up, see below>
+  reader load: <what the reader stops having to hold in their head: a hop, a branch,
+                an indirection, a file they no longer need to open>
   why safe: <the observation that makes removing it safe — a caller count, the single
              input shape, the one implementation>
   removes behaviour: <yes + what observable thing disappears, or no>
@@ -77,9 +82,15 @@ Have each subagent report findings in this shape:
 
 Findings arrive per slice, but the real ones usually cross slices — a DTO layer touches the
 API and the client, an interface touches its callers. Merge those into one finding covering
-every site, then sort by **lines a reader no longer has to follow, divided by how much the
-change disturbs**. A 90-line type chain collapsing into one record beats six scattered
-one-line simplifications, even though the count of findings favours the latter.
+every site, then sort by **how much a reader stops having to hold in their head, against how
+much the change disturbs**. A 90-line type chain collapsing into one record beats six
+scattered one-line simplifications, even though the count of findings favours the latter.
+
+Rank by reader load, not by line count — they usually agree, and when they don't, line count
+is the one that's wrong. Deleting a layer removes lines; expanding a dense one-liner into
+steps a student can trace adds them, and is just as much a win. So a finding whose `size`
+goes *up* is legitimate: say so plainly in the ticket rather than quietly dropping it
+because the number looks like a regression.
 
 Drop anything you can't defend with evidence. Verify every `needs-check` before it reaches
 a ticket — a proposal to delete an interface that turns out to have two live callers costs

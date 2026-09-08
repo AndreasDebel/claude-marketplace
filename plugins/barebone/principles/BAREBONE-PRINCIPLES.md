@@ -32,8 +32,17 @@ production instincts are the thing making this code unreadable, so set them down
 5. **Spelled out beats clever.** A six-line `foreach` a student can trace beats a one-line
    LINQ chain. Fewer lines is not the goal; fewer things to hold in your head at once is.
    Prefer obvious names and explicit steps over compression.
-6. **Leave simple code alone.** If a file already reads cleanly, don't restructure it.
-   Churn costs the reader more than it saves.
+6. **Cosmetic change is not an improvement.** Only restructure when the change removes
+   something principles 1–5 name — a branch, a hop, an abstraction, a widened input. A file
+   that satisfies 1–5 is done, however plain it looks; a file that violates one isn't
+   spared by being tidy. Renaming, reordering and general tidying cost the reader a
+   re-read and remove nothing.
+
+**Line count is not the metric.** Cutting a layer removes lines; expanding a clever
+one-liner into steps a student can trace adds them. Both are wins here. What's being
+minimised is how much a reader has to hold in their head at once — so a change that grows
+the file and shrinks that load is a good change, and shorter is only evidence, never the
+goal.
 
 **Dropped on purpose, not forgotten.** Error handling, validation, and generality get
 added back on request, once the mechanism underneath is understood. So whenever you skip

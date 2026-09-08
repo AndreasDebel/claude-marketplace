@@ -29,7 +29,11 @@ request shape, one file format, one caller>
 *(refactor)* Name the principle(s) at stake and the evidence that makes the change safe —
 the caller count, the single input shape, the one live implementation.
 
-*(refactor)* **Size:** ~<N> lines across <M> files → ~<N'> lines across <M'> files.
+*(refactor)* **Size:** ~<N> lines across <M> files → ~<N'> lines across <M'> files, and
+**what the reader stops having to follow** — the hop, branch, indirection, or file that
+goes away. State both, because they can move in opposite directions: expanding a dense
+one-liner into traceable steps grows the line count and still lowers the load. When that
+happens, say so here rather than leaving the number looking like a regression.
 
 ## Step 1 — `path/to/file.ext`
 
